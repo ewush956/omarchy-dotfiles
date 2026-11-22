@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "ewse.wallpapers",
+  "name": "Monitor Wallpapers",
+  "version": "1.0.0",
+  "author": "ewse",
+  "description": "Per-monitor wallpaper picker: one parallelogram carousel row per monitor",
+  "kinds": [
+    "overlay"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "Wallpapers.qml"
+  }
+}

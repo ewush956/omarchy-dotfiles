@@ -1,0 +1,10 @@
+anonymous https://github.com/j4v3l/omarchy-anonymous-theme
+ayaka https://github.com/abhijeet-swami/omarchy-ayaka-theme
+blackgold https://github.com/HANCORE-linux/omarchy-blackgold-theme
+delorean https://github.com/jbnunn/omarchy-delorean-theme
+florida-man https://github.com/OldJobobo/omarchy-florida-man-theme
+hakker-green https://github.com/joaquinmeza/omarchy-hakker-green-theme
+jamaica https://github.com/j4v3l/omarchy-jamaica-theme
+Jamaica https://github.com/j4v3l/omarchy-Jamaica-theme
+space-monkey https://github.com/TyRichards/omarchy-space-monkey-theme
+vesper https://github.com/thmoee/omarchy-vesper-theme

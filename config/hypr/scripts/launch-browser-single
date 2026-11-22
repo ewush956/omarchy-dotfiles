@@ -1,0 +1,12 @@
+#!/bin/bash
+# Wrapper around omarchy-launch-browser for SUPER + B.
+#
+# Zen restores every window from the previous session on a cold start, so after
+# a reboot one keypress produced several windows. If Zen isn't running, trim its
+# saved session to one window first so only one window is ever created.
+
+if ! pgrep -x zen-bin >/dev/null; then
+  "$HOME/.config/hypr/scripts/zen-trim-session"
+fi
+
+exec omarchy-launch-browser "$@"

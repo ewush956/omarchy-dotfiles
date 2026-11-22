@@ -1,0 +1,67 @@
+# Heavy or situational apps from the old laptop. Install with:
+#   ./install.sh --optional
+# Delete lines you don't want first.
+
+# Creative
+blender
+gimp
+inkscape
+kdenlive
+obs-studio
+xournalpp
+typora
+
+# Music production (Reaper + Windows VST bridge)
+reaper
+realtime-privileges
+wine-staging
+winetricks
+yabridge
+yabridgectl
+
+# LaTeX
+texlive-basic
+texlive-bibtexextra
+texlive-binextra
+texlive-fontsextra
+texlive-fontsrecommended
+texlive-latexextra
+texlive-latexrecommended
+
+# Dev / data science
+clang
+cmake
+llvm
+rust
+swig
+mariadb
+dotnet-runtime-9.0
+jupyter-notebook
+python-black
+python-pylint
+python-pytorch
+torchvision
+visual-studio-code-bin
+live-server
+git-filter-repo
+
+# Apps
+signal-desktop
+spotify
+kdeconnect
+jellyfin-desktop
+claude-desktop-bin
+
+# Games
+steam
+prismlauncher
+minecraft-launcher
+forge-gui-desktop-snapshot-bin
+
+# Diagnostics
+sysstat
+smartmontools
+nvme-cli
+usbutils
+mesa-utils
+libva-utils

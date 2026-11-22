@@ -1,0 +1,142 @@
+{
+  "bar": {
+    "background": "none",
+    "layout": {
+      "center": [
+        {
+          "id": "ewse.workspaces"
+        }
+      ],
+      "centerBegin": [],
+      "centerEnd": [],
+      "left": [
+        {
+          "format": "dddd HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
+          "verticalFormat": "HH\n—\nmm"
+        },
+        {
+          "id": "omarchy.keyboard-layout"
+        },
+        {
+          "id": "omarchy.system-update"
+        },
+        {
+          "id": "ewse.weather"
+        },
+        {
+          "alwaysShow": true,
+          "id": "ewse.indicators",
+          "items": [
+            "Reminder",
+            "ScreenRecording",
+            "StayAwake"
+          ]
+        }
+      ],
+      "right": [
+        {
+          "id": "omarchy.tray"
+        },
+        {
+          "activeProfile": "liquid",
+          "border": true,
+          "gap": 8,
+          "hideButton": true,
+          "id": "io.github.jcarcinogen.rice-bar",
+          "opacity": 34,
+          "preset": "liquid",
+          "profileVersion": 1,
+          "profiles": {
+            "glow": {
+              "border": true,
+              "gap": 8,
+              "opacity": 82,
+              "radius": 16
+            },
+            "islands": {
+              "border": true,
+              "gap": 4,
+              "opacity": 92,
+              "radius": 12
+            },
+            "liquid": {
+              "border": true,
+              "gap": 8,
+              "opacity": 34,
+              "radius": 11
+            },
+            "omarchy": {
+              "border": false,
+              "gap": 0,
+              "opacity": 100,
+              "radius": 0
+            },
+            "outline": {
+              "border": true,
+              "gap": 6,
+              "opacity": 33,
+              "radius": 9
+            },
+            "pills": {
+              "border": true,
+              "gap": 3,
+              "opacity": 90,
+              "radius": 18
+            }
+          },
+          "radius": 11,
+          "stockTransparent": false
+        },
+        {
+          "id": "omarchy.agents"
+        },
+        {
+          "id": "omarchy.bluetooth"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
+          "id": "omarchy.audio"
+        },
+        {
+          "id": "omarchy.monitor"
+        },
+        {
+          "id": "omarchy.power"
+        }
+      ],
+      "tray": []
+    },
+    "position": "top"
+  },
+  "cloneSourceRestores": [
+    "ewse.background",
+    "ewse.notifications"
+  ],
+  "disabledPlugins": [
+    "omarchy.background",
+    "omarchy.notifications"
+  ],
+  "idle": {
+    "lock": 300,
+    "screensaver": 150
+  },
+  "plugins": [
+    {
+      "id": "ewse.background"
+    },
+    {
+      "id": "ewse.wallpapers"
+    },
+    {
+      "id": "ewse.notifications"
+    },
+    {
+      "id": "io.voxtype.settings"
+    }
+  ],
+  "version": 1
+}

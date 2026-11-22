@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+# Trim Zen's saved session to a single window so a cold start opens one window.
+#
+# Zen restores every window from the previous session regardless of
+# browser.startup.page (known upstream bug, e.g. zen-browser/desktop#9586,
+# #9254). Run this only while Zen is NOT running, before launching it.
+
+import glob
+import json
+import os
+import subprocess
+import sys
+
+MAGIC = b"mozLz40\0"
+
+
+def lz4_decompress(src):
+    size = int.from_bytes(src[:4], "little")
+    s, out, i = src[4:], bytearray(), 0
+    while i < len(s):
+        token = s[i]
+        i += 1
+        length = token >> 4
+        if length == 15:
+            while True:
+                b = s[i]
+                i += 1
+                length += b
+                if b != 255:
+                    break
+        out += s[i : i + length]
+        i += length
+        if i >= len(s):
+            break
+        offset = s[i] | (s[i + 1] << 8)
+        i += 2
+        match = token & 15
+        if match == 15:
+            while True:
+                b = s[i]
+                i += 1
+                match += b
+                if b != 255:
+                    break
+        match += 4
+        start = len(out) - offset
+        for k in range(match):
+            out.append(out[start + k])
+    assert len(out) == size, "bad mozlz4 size"
+    return bytes(out)
+
+
+def lz4_store(data):
+    # A valid LZ4 block made of a single literal-only sequence (no compression).
+    n = len(data)
+    if n < 15:
+        header = bytes([n << 4])
+    else:
+        rest, ext = n - 15, bytearray()
+        while rest >= 255:
+            ext.append(255)
+            rest -= 255
+        ext.append(rest)
+        header = bytes([0xF0]) + bytes(ext)
+    return n.to_bytes(4, "little") + header + data
+
+
+def trim(path):
+    with open(path, "rb") as f:
+        raw = f.read()
+    if not raw.startswith(MAGIC):
+        return
+    state = json.loads(lz4_decompress(raw[len(MAGIC) :]))
+    windows = state.get("windows") or []
+    if len(windows) <= 1:
+        return
+    selected = state.get("selectedWindow") or 1
+    keep = windows[selected - 1] if 0 < selected <= len(windows) else windows[0]
+    if keep.get("isPrivate") or keep.get("isPopup"):
+        keep = next((w for w in windows if not w.get("isPrivate") and not w.get("isPopup")), windows[0])
+    state["windows"] = [keep]
+    state["selectedWindow"] = 1
+    data = json.dumps(state, separators=(",", ":")).encode()
+    tmp = path + ".trim-tmp"
+    with open(tmp, "wb") as f:
+        f.write(MAGIC + lz4_store(data))
+    os.replace(tmp, path)
+    print(f"trimmed {path}: {len(windows)} -> 1 windows")
+
+
+def main():
+    if subprocess.run(["pgrep", "-x", "zen-bin"], capture_output=True).returncode == 0:
+        sys.exit(0)  # never touch the session of a running browser
+    for profile in glob.glob(os.path.expanduser("~/.zen/*/")):
+        for name in ("sessionstore.jsonlz4", "sessionstore-backups/recovery.jsonlz4", "sessionstore-backups/recovery.baklz4"):
+            path = os.path.join(profile, name)
+            if os.path.isfile(path):
+                try:
+                    trim(path)
+                except Exception as e:
+                    print(f"skip {path}: {e}", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    main()
