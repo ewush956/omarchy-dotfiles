@@ -25,7 +25,7 @@ for f in hypr/hyprland.lua hypr/bindings.lua hypr/looknfeel.lua hypr/autostart.l
          hypr/scripts/zen-trim-session \
          fish/config.fish btop/btop.conf voxtype/config.toml \
          herdr/config.toml omarchy/extensions/omarchy-menu.jsonc starship.toml mimeapps.list \
-         xdg-terminals.list brave-flags.conf chromium-flags.conf \
+         xdg-terminals.list \
          wireplumber/wireplumber.conf.d/bluetooth-a2dp-autoconnect.conf; do
   [[ -f $C/$f ]] && install -D -m "$(stat -c %a "$C/$f")" "$C/$f" "$REPO/config/$f"
 done

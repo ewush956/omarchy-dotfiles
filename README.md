@@ -25,7 +25,7 @@ is backed up to `~/.config-backup/<timestamp>/` first.
 | Terminals | kitty (default, with the Pokémon sprite watcher), ghostty, alacritty, foot, tmux, starship |
 | Shell | fish (`config/fish/`): Omarchy's bash aliases and functions ported, Pokémon sprite, Python venv helpers |
 | Editor | Neovim (LazyVim) with LaTeX, Jupyter/molten, PDF view; follows the Omarchy theme |
-| Other | btop, lazygit, git aliases, imv, mise, voxtype dictation, browser flags, mimeapps, wireplumber tweaks |
+| Other | btop, lazygit, git aliases, imv, mise, voxtype dictation, mimeapps, wireplumber tweaks |
 | Themes | `themes.txt`: community themes cloned by the installer; active theme in `theme` |
 | Packages | `packages/core.txt` (installed), `packages/optional.txt` (`--optional`) |
 
