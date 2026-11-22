@@ -21,7 +21,7 @@ done
 # Single files.
 for f in hypr/hyprland.lua hypr/bindings.lua hypr/looknfeel.lua hypr/autostart.lua \
          hypr/input.lua hypr/workspace-links.lua hypr/workspace-links.md hypr/xdph.conf \
-         hypr/scripts/cursor-pulse.py hypr/scripts/launch-browser-single \
+         hypr/scripts/launch-browser-single \
          hypr/scripts/zen-trim-session \
          fish/config.fish btop/btop.conf voxtype/config.toml \
          herdr/config.toml omarchy/extensions/omarchy-menu.jsonc starship.toml mimeapps.list \

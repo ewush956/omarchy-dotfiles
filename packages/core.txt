@@ -31,6 +31,7 @@ wl-clip-persist
 zathura
 zathura-pdf-mupdf
 ttf-cascadia-mono-nerd
+ttf-jetbrains-mono-nerd
 ttf-material-symbols-variable
 noto-fonts-extra
 zen-browser-bin
